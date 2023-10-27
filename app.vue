@@ -1,5 +1,5 @@
 <template>
   <div>
-    <UiButton>Click me</UiButton>
+    <UiButton variant="destructive" size="sm">Click me</UiButton>
   </div>
 </template>
