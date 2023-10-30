@@ -1,5 +1,11 @@
+<script setup lang="ts"></script>
+
 <template>
-  <div>
-    <UiButton variant="destructive" size="sm">Click me</UiButton>
-  </div>
+    <div>
+        <NuxtLayout>
+            <NuxtPage />
+        </NuxtLayout>
+    </div>
 </template>
+
+<style lang="scss" scoped></style>

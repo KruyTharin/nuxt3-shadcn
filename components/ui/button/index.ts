@@ -23,6 +23,9 @@ export const buttonVariants = cva(
                 sm: 'h-9 rounded-md px-3',
                 lg: 'h-11 rounded-md px-8',
                 icon: 'h-10 w-10'
+            },
+            disabled: {
+                true: '!bg-gray-100 !text-gray-400 cursor-not-allowed'
             }
         },
         defaultVariants: {
