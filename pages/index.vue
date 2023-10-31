@@ -1,10 +1,9 @@
-<script setup lang="ts">
-import ListButton from '../components/list/Button.vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
     <div>
-        <ListButton />
+        <SessionsButton />
+        <SessionsAlertDialog />
     </div>
 </template>
 

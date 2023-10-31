@@ -11,8 +11,7 @@ const clickMe = () => {
 </script>
 
 <template>
-    <div class="container mt-5">
-        <h2 class="mb-5 underline">Button Component</h2>
+    <LayoutContainer title="Button Component">
         <div class="flex gap-5">
             <UiButton variant="destructive" size="lg">Click me</UiButton>
             <UiButton variant="destructive" size="lg" :icon-left="BeakerIcon"
@@ -24,7 +23,7 @@ const clickMe = () => {
             <UiButton variant="default" size="default">Click me</UiButton>
             <UiButton variant="outline" size="sm">Click me</UiButton>
             <UiButton variant="link" size="sm" to="/" target="_blank"
-                >Click me</UiButton
+                >Link</UiButton
             >
 
             <UiButton
@@ -45,5 +44,5 @@ const clickMe = () => {
                 >Click me</UiButton
             >
         </div>
-    </div>
+    </LayoutContainer>
 </template>
