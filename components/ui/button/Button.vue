@@ -7,8 +7,10 @@ import { cn } from '@/lib/utils';
 interface Props {
     variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant'];
     size?: NonNullable<Parameters<typeof buttonVariants>[0]>['size'];
-    iconLeft?: Object;
-    iconRight?: Object;
+    // iconLeft?: Object;
+    // iconRight?: Object;
+    iconLeft?: any;
+    iconRight?: any;
     as?: string;
     to?: string;
     loading?: boolean;

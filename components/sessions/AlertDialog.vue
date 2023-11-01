@@ -1,35 +1,64 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import {
     AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
     AlertDialogContent,
     AlertDialogDescription,
     AlertDialogFooter,
     AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger
+    AlertDialogTitle
 } from '@/components/ui/alert-dialog';
+import LayoutContainer from '~/components/layout/Container.vue';
+import { useAlertStore } from '@/stores/alert';
+
+// access the `store` variable anywhere in the component ✨
+const alert = useAlertStore();
+const { state } = storeToRefs(alert);
+const isLoading = ref(false);
+
+const onOpen = () => {
+    alert.show({
+        title: 'title',
+        description: 'description',
+        btnText: 'Reject',
+        variant: 'destructive',
+        onAccept: onConfirm
+    });
+};
+
+const onConfirm = () => {
+    isLoading.value = true;
+
+    // TODO: request api instead of setTimeout
+    setTimeout(() => {
+        isLoading.value = false;
+        // Check if data respond success close dialog
+        alert.hide();
+    }, 500);
+};
 </script>
 
 <template>
     <LayoutContainer title="Alert Dialog">
-        <AlertDialog>
-            <AlertDialogTrigger>Open</AlertDialogTrigger>
+        <AlertDialog :open="state.isOpen">
+            <UiButton @click="onOpen">Open</UiButton>
             <AlertDialogContent>
                 <AlertDialogHeader>
-                    <AlertDialogTitle
-                        >Are you absolutely sure?</AlertDialogTitle
-                    >
+                    <AlertDialogTitle>{{ state.title }}</AlertDialogTitle>
                     <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
+                        {{ state.description }}
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction>Continue</AlertDialogAction>
+                    <UiButton variant="outline" @click="alert.hide()"
+                        >Cancel</UiButton
+                    >
+                    <UiButton
+                        :loading="isLoading"
+                        :variant="state.variant"
+                        @click="alert.accept()"
+                        >{{ state.btnText }}</UiButton
+                    >
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
