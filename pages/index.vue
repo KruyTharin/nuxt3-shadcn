@@ -4,6 +4,7 @@
     <div class="container flex flex-col gap-8">
         <SessionsButton />
         <SessionsAlertDialog />
+        <SessionsForm />
     </div>
 </template>
 

@@ -16,7 +16,7 @@ const alert = useAlertStore();
 const { state } = storeToRefs(alert);
 const isLoading = ref(false);
 
-const onOpen = () => {
+const onOpenDialog = () => {
     alert.show({
         title: 'title',
         description: 'description',
@@ -39,9 +39,9 @@ const onConfirm = () => {
 </script>
 
 <template>
-    <LayoutContainer title="Alert Dialog">
+    <LayoutContainer title="Alert Dialog with Pinia state">
         <AlertDialog :open="state.isOpen">
-            <UiButton @click="onOpen">Open</UiButton>
+            <UiButton @click="onOpenDialog">Open</UiButton>
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>{{ state.title }}</AlertDialogTitle>
