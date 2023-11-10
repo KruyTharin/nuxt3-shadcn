@@ -12,13 +12,15 @@ import {
     FormField,
     FormItem,
     FormLabel,
-    FormMessage
+    FormMessage,
+    FormInput
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
 const formSchema = toTypedSchema(
     z.object({
-        username: z.string().min(2).max(50)
+        username: z.string().min(2).max(50),
+        phone: z.number().min(2).max(50)
     })
 );
 
@@ -35,7 +37,6 @@ const onSubmit = form.handleSubmit((values) => {
     <LayoutContainer title="Form Component">
         <form @submit="onSubmit">
             <FormField v-slot="{ componentField }" name="username">
-                {{ componentField }}
                 <FormItem>
                     <FormLabel>Username</FormLabel>
                     <FormControl>
@@ -50,6 +51,16 @@ const onSubmit = form.handleSubmit((values) => {
                     </FormDescription>
                     <FormMessage />
                 </FormItem>
+            </FormField>
+
+            <!-- FormInput Component -->
+            <FormField v-slot="{ componentField }" name="phone">
+                <FormInput
+                    label="phone number"
+                    type="number"
+                    placeholder="Your PhoneNumber"
+                    v-bind="componentField"
+                />
             </FormField>
             <Button type="submit"> Submit </Button>
         </form>

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useAttrs } from 'vue';
 import { Label, type LabelProps } from 'radix-vue';
 import { useFormField } from './useFormField';
 import { cn } from '@/lib/utils';
