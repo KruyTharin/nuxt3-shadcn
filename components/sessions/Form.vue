@@ -19,8 +19,11 @@ import { Input } from '@/components/ui/input';
 
 const formSchema = toTypedSchema(
     z.object({
-        username: z.string().min(2).max(50),
-        phone: z.number().min(2).max(50)
+        username: z.string().min(1).max(18),
+        phone: z.string().regex(
+            // Regular expression for various phone number formats
+            /^([\+]?[0-9]{1,3})?[-\s]?[\d]{3}[\-\s]?[\d]{3}[\-\s]?[\d]{4}$/
+        )
     })
 );
 
@@ -57,7 +60,7 @@ const onSubmit = form.handleSubmit((values) => {
             <FormField v-slot="{ componentField }" name="phone">
                 <FormInput
                     label="phone number"
-                    type="number"
+                    type="string"
                     placeholder="Your PhoneNumber"
                     v-bind="componentField"
                 />
