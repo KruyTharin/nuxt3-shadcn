@@ -30,10 +30,13 @@
   "dependencies": {
     "@heroicons/vue": "^2.0.18",
     "@pinia/nuxt": "^0.5.1",
+    "@types/lodash.debounce": "^4.0.9",
     "@vee-validate/zod": "^4.11.8",
     "@vueuse/core": "^10.5.0",
+    "D": "^1.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "lodash.debounce": "^4.0.8",
     "lucide-vue-next": "^0.289.0",
     "radix-vue": "^1.0.2",
     "tailwind-merge": "^1.14.0",

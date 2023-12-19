@@ -5,6 +5,7 @@
         <SessionsButton />
         <SessionsAlertDialog />
         <SessionsForm />
+        <SessionsSearchParam />
     </div>
 </template>
 
